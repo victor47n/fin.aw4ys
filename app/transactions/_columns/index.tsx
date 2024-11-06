@@ -6,7 +6,7 @@ import TransactionTypeBadge from "../_components/transaction-type-badge";
 import {
   TRANSACTION_CATEGORY_LABELS,
   TRANSACTION_PAYMENT_METHOD_LABELS,
-} from "@/app/_constants/transactins";
+} from "@/app/_constants/transactions";
 import { formatCurrency } from "@/app/_utils/formatCurrency";
 import { Button } from "@/app/_components/ui/button";
 import { PencilIcon, TrashIcon } from "lucide-react";
