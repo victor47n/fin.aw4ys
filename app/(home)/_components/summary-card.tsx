@@ -8,6 +8,7 @@ interface SummaryCardProps {
   title: string;
   amount: number;
   size?: "small" | "large";
+  bgColor?: string;
 }
 
 export default function SummaryCard({
@@ -15,9 +16,10 @@ export default function SummaryCard({
   title,
   amount,
   size = "small",
+  bgColor,
 }: SummaryCardProps) {
   return (
-    <Card>
+    <Card style={bgColor ? { backgroundColor: `${bgColor}` } : {}}>
       <CardHeader className="flex-row items-center gap-4">
         {icon}
         <p
