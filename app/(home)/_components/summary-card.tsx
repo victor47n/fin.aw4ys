@@ -9,6 +9,7 @@ interface SummaryCardProps {
   amount: number;
   size?: "small" | "large";
   bgColor?: string;
+  userCanAddTransaction?: boolean;
 }
 
 export default function SummaryCard({
@@ -17,6 +18,7 @@ export default function SummaryCard({
   amount,
   size = "small",
   bgColor,
+  userCanAddTransaction,
 }: SummaryCardProps) {
   return (
     <Card style={bgColor ? { backgroundColor: `${bgColor}` } : {}}>
@@ -35,7 +37,9 @@ export default function SummaryCard({
           {formatCurrency(amount)}
         </p>
 
-        {size === "large" && <AddTransactionButton />}
+        {size === "large" && (
+          <AddTransactionButton userCanAddTransaction={userCanAddTransaction} />
+        )}
       </CardContent>
     </Card>
   );
