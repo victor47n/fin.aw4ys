@@ -28,9 +28,7 @@ export default function DeleteTransactionButton({
       await deleteTransaction({ transactionId });
 
       toast.success("Transação deletada com sucesso!");
-    } catch (error) {
-      console.error(error);
-
+    } catch {
       toast.error("Ocorreu um erro ao deletar a transação.");
     }
   };
