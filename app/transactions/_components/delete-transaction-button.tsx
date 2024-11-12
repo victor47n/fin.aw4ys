@@ -11,7 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/app/_components/ui/alert-dialog";
-import { Button } from "@/app/_components/ui/button";
+import { Button, buttonVariants } from "@/app/_components/ui/button";
 import { TrashIcon } from "lucide-react";
 import { deleteTransaction } from "../_actions/delete-transaction";
 import { toast } from "sonner";
@@ -37,7 +37,7 @@ export default function DeleteTransactionButton({
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="ghost" size="icon" className="text-muted-foreground">
-          <TrashIcon />
+          <TrashIcon className="text-destructive" />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
@@ -51,7 +51,10 @@ export default function DeleteTransactionButton({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction onClick={handleConfirmDeleteClick}>
+          <AlertDialogAction
+            onClick={handleConfirmDeleteClick}
+            className={buttonVariants({ variant: "destructive" })}
+          >
             Deletar
           </AlertDialogAction>
         </AlertDialogFooter>
