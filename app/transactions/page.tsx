@@ -19,6 +19,9 @@ export default async function TransactionsPage() {
     where: {
       userId,
     },
+    orderBy: {
+      date: "desc",
+    },
   });
 
   const userCanAddTransactions = await canUserAddTransaction();
