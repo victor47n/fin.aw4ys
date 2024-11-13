@@ -23,22 +23,30 @@ export default function AddTransactionButton({
   return (
     <>
       <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              className="rounded-full font-bold"
-              onClick={() => setDialogIsOpen(true)}
-              disabled={!userCanAddTransaction}
-            >
-              Adicionar transação
-              <ArrowDownUpIcon />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            {!userCanAddTransaction &&
-              "Você atingiu o limite de transações. Atualize seu plano para aproveitar a criação de transações ilimitadas."}
-          </TooltipContent>
-        </Tooltip>
+        {userCanAddTransaction ? (
+          <Button
+            className="rounded-full font-bold"
+            onClick={() => setDialogIsOpen(true)}
+          >
+            Adicionar transação
+            <ArrowDownUpIcon />
+          </Button>
+        ) : (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div>
+                <Button className="rounded-full font-bold" disabled>
+                  Adicionar transação
+                  <ArrowDownUpIcon />
+                </Button>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              Você atingiu o limite de transações. Atualize seu plano para
+              aproveitar a criação de transações ilimitadas.
+            </TooltipContent>
+          </Tooltip>
+        )}
       </TooltipProvider>
       <UpsertTransactionDialog
         isOpen={dialogIsOpen}
