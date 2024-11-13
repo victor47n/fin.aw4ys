@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Button } from "../_components/ui/button";
-import { LogInIcon } from "lucide-react";
 import { SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
@@ -19,18 +18,24 @@ export default async function LoginPage() {
           src="/logo.svg"
           width={173}
           height={39}
-          alt="Finance AI"
+          alt="fin.aw4ys"
           className="mb-8"
         />
         <h1 className="mb-3 text-4xl font-bold">Bem vindo!</h1>
-        <p className="text-muted-foreground mb-8">
-          A Finance AI é uma plataforma de gestão financeira que utiliza IA para
+        <p className="mb-8 text-muted-foreground">
+          A fin.aw4ys é uma plataforma de gestão financeira que utiliza IA para
           monitorar suas movimentações, e oferecer insights personalizados,
           facilitando o controle do seu orçamento.
         </p>
         <SignInButton>
           <Button variant="outline">
-            <LogInIcon className="mr-2" />
+            <Image
+              src="/google.svg"
+              alt="Faça login"
+              width={20}
+              height={20}
+              className="mr-2"
+            />
             Fazer login ou criar conta
           </Button>
         </SignInButton>
@@ -38,10 +43,10 @@ export default async function LoginPage() {
 
       <div className="relative h-full w-full">
         <Image
-          src="/login.png"
+          src="/login.jpg"
           alt="Faça login"
           fill
-          className="object-cover"
+          className="rounded-[4rem] object-cover p-8"
         />
       </div>
     </div>
