@@ -10,7 +10,7 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "Finance AI",
+  title: "fin.aw4ys",
   description: "Gerencie suas finanças e obtenha relatórios por IA",
 };
 

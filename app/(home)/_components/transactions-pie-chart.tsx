@@ -83,7 +83,7 @@ export function TransactionsPieChart({
 
         <div className="space-y-3">
           <PercentageItem
-            icon={<TrendingUp size={16} className="text-primary" />}
+            icon={<TrendingUp size={16} className="text-success" />}
             title="Receita"
             value={typesPercentage[TransactionType.DEPOSIT]}
           />

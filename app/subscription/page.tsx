@@ -30,7 +30,7 @@ export default async function SubscriptionPage() {
           <Card className="w-[450px]">
             <CardHeader className="relative border-b border-solid py-8">
               {!hasPremiumPlan && (
-                <Badge className="absolute left-4 top-11 bg-primary/10 text-primary">
+                <Badge className="absolute left-4 top-11 bg-success/10 text-success">
                   Atual
                 </Badge>
               )}
@@ -61,7 +61,7 @@ export default async function SubscriptionPage() {
           <Card className="w-[450px]">
             <CardHeader className="relative border-b border-solid py-8">
               {hasPremiumPlan && (
-                <Badge className="absolute left-4 top-11 bg-primary/10 text-primary">
+                <Badge className="absolute left-4 top-11 bg-success/10 text-success">
                   Atual
                 </Badge>
               )}

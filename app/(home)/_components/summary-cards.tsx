@@ -28,24 +28,36 @@ export default async function SummaryCards({
         title="Saldo"
         amount={balance}
         size="large"
-        bgColor="#161716"
+        bgColor="#100d14"
         userCanAddTransaction={userCanAddTransaction}
       />
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-3 items-center gap-6">
         <SummaryCard
-          icon={<PiggyBankIcon size={16} />}
+          icon={
+            <div className="rounded-lg bg-white bg-opacity-[3%] p-[0.625rem]">
+              <PiggyBankIcon size={16} />
+            </div>
+          }
           title="Investido"
           amount={investmentsTotal}
           bgColor="#FFFFFF03"
         />
         <SummaryCard
-          icon={<TrendingUpIcon size={16} className="text-primary" />}
+          icon={
+            <div className="rounded-lg bg-success/10 p-[0.625rem]">
+              <TrendingUpIcon size={16} className="text-success" />
+            </div>
+          }
           title="Receita"
           amount={depositsTotal}
         />
         <SummaryCard
-          icon={<TrendingDownIcon size={16} className="text-red-500" />}
+          icon={
+            <div className="rounded-lg bg-destructive/10 p-[0.625rem]">
+              <TrendingDownIcon size={16} className="text-red-500" />
+            </div>
+          }
           title="Despesa"
           amount={expensesTotal}
         />

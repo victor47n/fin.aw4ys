@@ -22,7 +22,7 @@ export default function SummaryCard({
 }: SummaryCardProps) {
   return (
     <Card style={bgColor ? { backgroundColor: `${bgColor}` } : {}}>
-      <CardHeader className="flex-row items-center gap-4">
+      <CardHeader className="flex-row items-center gap-4 space-y-0">
         {icon}
         <p
           className={`${size === "small" ? "text-muted-foreground" : "text-white opacity-70"}`}

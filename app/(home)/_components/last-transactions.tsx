@@ -21,7 +21,7 @@ export default function LastTransactions({
     }
 
     if (transaction.type === TransactionType.DEPOSIT) {
-      return "text-primary";
+      return "text-success";
     }
 
     return "text-white";

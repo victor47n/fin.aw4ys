@@ -11,8 +11,8 @@ export default function TransactionTypeBadge({
 }: TransactionTypeBadgeProps) {
   if (transaction.type === TransactionType.DEPOSIT) {
     return (
-      <Badge className="bg-muted font-bold text-primary hover:bg-muted">
-        <CircleIcon className="mr-2 fill-primary" size={8} />
+      <Badge className="bg-muted font-bold text-success hover:bg-muted">
+        <CircleIcon className="mr-2 fill-success" size={8} />
         Depósito
       </Badge>
     );
