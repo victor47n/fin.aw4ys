@@ -12,12 +12,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/app/_components/ui/dialog";
-import { BotIcon, Loader2Icon } from "lucide-react";
+import { BotIcon, CrownIcon, Loader2Icon } from "lucide-react";
 import { generateAiReport } from "../_actions/generate-ai-report";
 import { useState } from "react";
 import { ScrollArea } from "@/app/_components/ui/scroll-area";
 import Markdown from "react-markdown";
 import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/app/_components/ui/tooltip";
 
 interface AiReportButtonProps {
   hasPremiumPlan: boolean;
@@ -46,54 +52,56 @@ export default function AiReportButton({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="ghost">
-          Relatório IA <BotIcon />
-        </Button>
+        {hasPremiumPlan ? (
+          <Button variant="ghost">
+            Relatório IA
+            <BotIcon />
+          </Button>
+        ) : (
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div>
+                  <Button variant="ghost" disabled>
+                    Relatório IA
+                    <CrownIcon className="text-warning" size={16} />
+                  </Button>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                Você não tem acesso a essa funcionalidade.{" "}
+                <Link href="/subscription" className="text-warning underline">
+                  Atualize seu plano
+                </Link>{" "}
+                para gerar relatórios com IA.
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        )}
       </DialogTrigger>
       <DialogContent className="max-w-[600px]">
-        {hasPremiumPlan ? (
-          <>
-            <DialogHeader>
-              <DialogTitle>Relatório IA</DialogTitle>
-              <DialogDescription>
-                Use inteligência artificial para gerar um relatório com insights
-                sobre suas finanças.
-              </DialogDescription>
-            </DialogHeader>
-            <ScrollArea className="prose max-h-[450px] text-white prose-h3:text-white prose-h4:text-white prose-strong:text-white">
-              <Markdown>{report}</Markdown>
-            </ScrollArea>
-            <DialogFooter>
-              <DialogClose asChild>
-                <Button variant="ghost">Cancelar</Button>
-              </DialogClose>
-              <Button
-                onClick={handleGenerateReportClick}
-                disabled={reportIsLoading}
-              >
-                {reportIsLoading && <Loader2Icon className="animate-spin" />}
-                Gerar relatório
-              </Button>
-            </DialogFooter>
-          </>
-        ) : (
-          <>
-            <DialogHeader>
-              <DialogTitle>Relatório IA</DialogTitle>
-              <DialogDescription>
-                Você precisa de um plano premium para gerar relatórios com IA.
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter>
-              <DialogClose asChild>
-                <Button variant="ghost">Cancelar</Button>
-              </DialogClose>
-              <Button asChild>
-                <Link href="/subscription">Assinar plano premium</Link>
-              </Button>
-            </DialogFooter>
-          </>
-        )}
+        <DialogHeader>
+          <DialogTitle>Relatório IA</DialogTitle>
+          <DialogDescription>
+            Use inteligência artificial para gerar um relatório com insights
+            sobre suas finanças.
+          </DialogDescription>
+        </DialogHeader>
+        <ScrollArea className="prose max-h-[450px] text-white prose-h3:text-white prose-h4:text-white prose-strong:text-white">
+          <Markdown>{report}</Markdown>
+        </ScrollArea>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="ghost">Cancelar</Button>
+          </DialogClose>
+          <Button
+            onClick={handleGenerateReportClick}
+            disabled={reportIsLoading}
+          >
+            {reportIsLoading && <Loader2Icon className="animate-spin" />}
+            Gerar relatório
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
