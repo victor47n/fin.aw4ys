@@ -78,7 +78,7 @@ export default async function SubscriptionPage() {
             <CardContent className="space-y-6 py-8">
               <div className="flex items-center gap-3">
                 <CheckIcon className="text-primary" />
-                <p>Apenas 10 transações por mês (7/10)</p>
+                <p>Transações ilimitadas</p>
               </div>
               <div className="flex items-center gap-3">
                 <CheckIcon className="text-primary" />
