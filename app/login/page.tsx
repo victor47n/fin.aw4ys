@@ -43,7 +43,7 @@ export default async function LoginPage() {
 
       <div className="relative h-full w-full">
         <Image
-          src="/login.jpg"
+          src="/login.webp"
           alt="Faça login"
           fill
           className="rounded-[4rem] object-cover p-8"
