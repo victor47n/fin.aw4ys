@@ -6,7 +6,7 @@ services:
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=financeai
+      - POSTGRES_DB=finaw4ys
     volumes:
       - postgres_data:/bitnami/postgresql
 
