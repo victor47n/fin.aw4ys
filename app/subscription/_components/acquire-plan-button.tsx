@@ -5,26 +5,33 @@ import { createStripeCheckout } from "../_action/create-stripe-checkout";
 import { loadStripe } from "@stripe/stripe-js";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export default function AcquirePlanButton() {
   const { user } = useUser();
 
   const handleAcquirePlanClick = async () => {
-    const { sessionId } = await createStripeCheckout();
+    try {
+      const { sessionId } = await createStripeCheckout();
 
-    if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
-      throw new Error("Stripe publishable key not found");
+      if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
+        throw new Error("Stripe publishable key not found");
+      }
+
+      const stripe = await loadStripe(
+        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+      );
+
+      if (!stripe) {
+        throw new Error("Stripe not found");
+      }
+
+      await stripe.redirectToCheckout({ sessionId });
+    } catch (error) {
+      console.error(error);
+
+      toast.error("Não foi possível adquirir o plano. Tente novamente.");
     }
-
-    const stripe = await loadStripe(
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-    );
-
-    if (!stripe) {
-      throw new Error("Stripe not found");
-    }
-
-    await stripe.redirectToCheckout({ sessionId });
   };
 
   const hasPremiumPlan = user?.publicMetadata.subscriptionPlan === "premium";
