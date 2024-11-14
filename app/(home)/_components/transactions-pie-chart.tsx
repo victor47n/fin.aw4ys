@@ -46,7 +46,7 @@ export function TransactionsPieChart({
     {
       type: TransactionType.DEPOSIT,
       amount: depositsTotal,
-      fill: "#55B02E",
+      fill: "#39ED5B",
     },
     {
       type: TransactionType.EXPENSE,
