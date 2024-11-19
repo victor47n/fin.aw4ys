@@ -12,8 +12,8 @@ export default async function LoginPage() {
   }
 
   return (
-    <div className="grid h-full grid-cols-2">
-      <div className="mx-auto flex h-full max-w-[550px] flex-col justify-center p-8">
+    <div className="grid h-full grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1">
+      <div className="mx-auto flex h-full max-w-[550px] flex-col p-8 pt-0 sm:pt-8 lg:justify-center">
         <Image
           src="/logo.svg"
           width={173}
@@ -41,7 +41,7 @@ export default async function LoginPage() {
         </SignInButton>
       </div>
 
-      <div className="relative h-full w-full">
+      <div className="relative row-start-1 h-full w-full lg:col-start-2">
         <Image
           src="/login.webp"
           alt="Faça login"
