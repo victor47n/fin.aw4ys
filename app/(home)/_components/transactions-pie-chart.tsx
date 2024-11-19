@@ -3,7 +3,7 @@
 import { PiggyBankIcon, TrendingDownIcon, TrendingUp } from "lucide-react";
 import { Pie, PieChart } from "recharts";
 
-import { Card, CardContent } from "@/app/_components/ui/card";
+import { CardContent } from "@/app/_components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -13,6 +13,7 @@ import {
 import { TransactionType } from "@prisma/client";
 import type { TransactionPercentagePerType } from "@/app/_data/get-dashboard/types";
 import PercentageItem from "./percentage-item";
+import { ScrollArea } from "@/app/_components/ui/scroll-area";
 
 const chartConfig = {
   [TransactionType.INVESTMENT]: {
@@ -61,8 +62,8 @@ export function TransactionsPieChart({
   ];
 
   return (
-    <Card className="flex flex-col p-6">
-      <CardContent className="flex-1 pb-0">
+    <ScrollArea className="flex h-full flex-col items-center rounded-md border px-6 pb-6 lg:col-span-2 2xl:col-span-1">
+      <CardContent className="mt-6 flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
@@ -101,6 +102,6 @@ export function TransactionsPieChart({
           />
         </div>
       </CardContent>
-    </Card>
+    </ScrollArea>
   );
 }

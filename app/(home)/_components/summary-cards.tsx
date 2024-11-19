@@ -32,7 +32,7 @@ export default async function SummaryCards({
         userCanAddTransaction={userCanAddTransaction}
       />
 
-      <div className="grid grid-cols-3 items-center gap-6">
+      <div className="grid items-center gap-6 md:grid-cols-3">
         <SummaryCard
           icon={
             <div className="rounded-lg bg-white bg-opacity-[3%] p-[0.625rem]">

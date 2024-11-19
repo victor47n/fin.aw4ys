@@ -26,8 +26,8 @@ export default async function SubscriptionPage() {
       <div className="space-y-6 p-6">
         <h1 className="text-2xl font-bold">Assinaturas</h1>
 
-        <div className="flex gap-6">
-          <Card className="w-[450px]">
+        <div className="flex flex-col gap-6 md:flex-row">
+          <Card className="md:w-[450px]">
             <CardHeader className="relative border-b border-solid py-8">
               {!hasPremiumPlan && (
                 <Badge className="absolute left-4 top-11 bg-success/10 text-success">
@@ -58,7 +58,7 @@ export default async function SubscriptionPage() {
             </CardContent>
           </Card>
 
-          <Card className="w-[450px]">
+          <Card className="md:w-[450px]">
             <CardHeader className="relative border-b border-solid py-8">
               {hasPremiumPlan && (
                 <Badge className="absolute left-4 top-11 bg-success/10 text-success">

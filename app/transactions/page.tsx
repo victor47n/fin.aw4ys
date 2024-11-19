@@ -5,7 +5,7 @@ import AddTransactionButton from "../_components/add-transaction-button";
 import Navbar from "../_components/navbar";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { ScrollArea } from "../_components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "../_components/ui/scroll-area";
 import { canUserAddTransaction } from "../_data/can-user-add-transaction";
 import PaginationTransactionsContainer from "./_components/pagination-transactions-container";
 import { TransactionsTableFilter } from "./_components/transactions-table-filter";
@@ -90,6 +90,7 @@ export default async function TransactionsPage({
             columns={transactionColumns}
             data={JSON.parse(JSON.stringify(transactions))}
           />
+          <ScrollBar orientation="horizontal" />
         </ScrollArea>
 
         <PaginationTransactionsContainer

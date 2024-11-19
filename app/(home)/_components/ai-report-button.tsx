@@ -53,7 +53,7 @@ export default function AiReportButton({
     <Dialog>
       <DialogTrigger asChild>
         {hasPremiumPlan ? (
-          <Button variant="ghost">
+          <Button variant="ghost" className="w-full sm:w-auto">
             Relatório IA
             <BotIcon />
           </Button>
@@ -62,7 +62,7 @@ export default function AiReportButton({
             <Tooltip>
               <TooltipTrigger asChild>
                 <div>
-                  <Button variant="ghost" disabled>
+                  <Button variant="ghost" disabled className="w-full sm:w-auto">
                     Relatório IA
                     <CrownIcon className="text-warning" size={16} />
                   </Button>

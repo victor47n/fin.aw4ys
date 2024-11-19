@@ -45,9 +45,9 @@ export function TransactionsTableFilter() {
       resolver: zodResolver(transactionsFilterSchema),
       defaultValues: {
         name: name ?? "",
-        type: type ?? "all",
-        category: category ?? "all",
-        paymentMethod: paymentMethod ?? "all",
+        type: type ?? "",
+        category: category ?? "",
+        paymentMethod: paymentMethod ?? "",
       },
     });
 
@@ -110,7 +110,7 @@ export function TransactionsTableFilter() {
   return (
     <form
       onSubmit={handleSubmit(handleFilter)}
-      className="flex items-center gap-2"
+      className="flex flex-col gap-3 lg:flex-row lg:items-center"
     >
       <span className="text-sm font-semibold">Filtros:</span>
       <Input placeholder="Nome" className="h-8 w-auto" {...register("name")} />
@@ -121,14 +121,13 @@ export function TransactionsTableFilter() {
         render={({ field: { name, onChange, value, disabled } }) => {
           return (
             <Select
-              defaultValue="all"
               name={name}
               onValueChange={onChange}
               value={value}
               disabled={disabled}
             >
-              <SelectTrigger className="h-8 w-[180px]">
-                <SelectValue />
+              <SelectTrigger className="h-8 lg:w-[180px]">
+                <SelectValue placeholder="Tipo..." />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Todos</SelectItem>
@@ -149,14 +148,13 @@ export function TransactionsTableFilter() {
         render={({ field: { name, onChange, value, disabled } }) => {
           return (
             <Select
-              defaultValue="all"
               name={name}
               onValueChange={onChange}
               value={value}
               disabled={disabled}
             >
-              <SelectTrigger className="h-8 w-[180px]">
-                <SelectValue />
+              <SelectTrigger className="h-8 lg:w-[180px]">
+                <SelectValue placeholder="Categoria..." />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Todos</SelectItem>
@@ -183,8 +181,8 @@ export function TransactionsTableFilter() {
               value={value}
               disabled={disabled}
             >
-              <SelectTrigger className="h-8 w-[180px]">
-                <SelectValue />
+              <SelectTrigger className="h-8 lg:w-[180px]">
+                <SelectValue placeholder="Método de pagamento..." />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Todos</SelectItem>

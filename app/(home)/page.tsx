@@ -39,9 +39,11 @@ export default async function Home({ searchParams: { month } }: HomeProps) {
   return (
     <>
       <Navbar />
-      <div className="flex h-full flex-col space-y-6 overflow-hidden p-6">
-        <div className="flex justify-between">
-          <h1 className="text-2xl font-bold">Dashboard</h1>
+      <div className="flex flex-col space-y-6 p-6 xl:h-full xl:overflow-hidden">
+        <div className="flex flex-col justify-between gap-3 sm:flex-row">
+          <h1 className="text-center text-2xl font-bold sm:text-left">
+            Dashboard
+          </h1>
           <div className="flex items-center gap-3">
             <AiReportButton
               month={month}
@@ -52,20 +54,22 @@ export default async function Home({ searchParams: { month } }: HomeProps) {
             <TimeSelect />
           </div>
         </div>
-        <div className="grid h-full grid-cols-[2fr,1fr] gap-6 overflow-hidden">
-          <div className="flex flex-col gap-6 overflow-hidden">
+        <div className="grid gap-6 xl:h-full xl:grid-cols-[2fr,1fr] xl:overflow-hidden">
+          <div className="flex flex-col gap-6 xl:overflow-hidden">
             <SummaryCards
               {...dashboard}
               userCanAddTransaction={userCanAddTransactions}
             />
-            <div className="grid h-full grid-cols-3 grid-rows-1 gap-6 overflow-hidden">
+            <div className="flex flex-col gap-6 lg:grid lg:h-full lg:grid-cols-4 lg:grid-rows-1 lg:overflow-hidden 2xl:grid-cols-3">
               <TransactionsPieChart {...dashboard} />
               <ExpensesPerCategory
                 expensesPerCategory={dashboard.totalExpensePerCategory}
               />
             </div>
           </div>
-          <LastTransactions lastTransactions={dashboard.lastTransactions} />
+          <div className="grid gap-9 xl:flex xl:flex-col xl:gap-4 xl:overflow-hidden">
+            <LastTransactions lastTransactions={dashboard.lastTransactions} />
+          </div>
         </div>
       </div>
     </>

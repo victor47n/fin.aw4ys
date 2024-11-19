@@ -37,7 +37,7 @@ export default function TimeSelect() {
       onValueChange={(value) => handleMonthChange(value)}
       defaultValue={month ?? ""}
     >
-      <SelectTrigger className="w-[125px] rounded-full">
+      <SelectTrigger className="max-w-full rounded-full sm:w-[125px]">
         <SelectValue placeholder="Mês" />
       </SelectTrigger>
       <SelectContent>

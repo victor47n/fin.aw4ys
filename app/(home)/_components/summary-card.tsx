@@ -22,7 +22,7 @@ export default function SummaryCard({
 }: SummaryCardProps) {
   return (
     <Card style={bgColor ? { backgroundColor: `${bgColor}` } : {}}>
-      <CardHeader className="flex-row items-center gap-4 space-y-0">
+      <CardHeader className="flex-row items-center justify-center gap-4 space-y-0 sm:justify-normal">
         {icon}
         <p
           className={`${size === "small" ? "text-muted-foreground" : "text-white opacity-70"}`}
@@ -30,9 +30,9 @@ export default function SummaryCard({
           {title}
         </p>
       </CardHeader>
-      <CardContent className="flex justify-between">
+      <CardContent className="flex flex-col justify-between gap-8 sm:flex-row">
         <p
-          className={`font-bold ${size === "small" ? "text-2xl font-bold" : "text-4xl"}`}
+          className={`text-center font-bold sm:text-left ${size === "small" ? "text-2xl font-bold" : "text-4xl"}`}
         >
           {formatCurrency(amount)}
         </p>

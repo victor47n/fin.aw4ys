@@ -52,7 +52,7 @@ export default function LastTransactions({
             className="flex items-center justify-between"
           >
             <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-white bg-opacity-[3%] p-3 text-white">
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white bg-opacity-[3%] p-3 text-white">
                 <Image
                   src={`/${TRANSACTION_PAYMENT_METHOD_ICONS[transaction.paymentMethod]}`}
                   height={20}
@@ -61,7 +61,9 @@ export default function LastTransactions({
                 />
               </div>
               <div>
-                <p className="text-sm font-bold">{transaction.name}</p>
+                <p className="max-w-32 text-sm font-bold sm:max-w-full">
+                  {transaction.name}
+                </p>
                 <p className="text-sm text-muted-foreground">
                   {new Date(transaction.date).toLocaleDateString("pt-BR", {
                     day: "2-digit",
