@@ -90,6 +90,7 @@ export default function Navbar() {
                 appearance={{
                   elements: {
                     userButtonBox: "flex-row-reverse",
+                    userButtonPopoverCard: { pointerEvents: "initial" },
                   },
                 }}
               />
