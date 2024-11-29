@@ -120,7 +120,7 @@ export default function UpsertTransactionDialog({
         }
       }}
     >
-      <DialogContent className="flex h-full max-h-[100vh] max-w-full flex-col overflow-hidden lg:max-h-[80vh] lg:max-w-lg 2xl:h-auto">
+      <DialogContent className="flex h-full max-h-[100vh] max-w-full flex-col overflow-hidden lg:max-h-[90vh] lg:max-w-lg 2xl:h-auto">
         <DialogHeader>
           <DialogTitle>
             {isUpdate ? "Atualizar" : "Adicionar"} transação
