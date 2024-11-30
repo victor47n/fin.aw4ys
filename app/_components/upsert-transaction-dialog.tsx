@@ -82,7 +82,7 @@ export default function UpsertTransactionDialog({
 }: UpsertTransactionDialogProps) {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
-    defaultValues: defaultValues ?? {
+    defaultValues: {
       amount: 0,
       category: TransactionCategory.OTHER,
       date: new Date(),
@@ -90,6 +90,7 @@ export default function UpsertTransactionDialog({
       paymentMethod: TransactionPaymentMethod.CASH,
       type: TransactionType.EXPENSE,
     },
+    values: defaultValues,
   });
 
   const onSubmit = async (data: FormSchema) => {
@@ -115,6 +116,7 @@ export default function UpsertTransactionDialog({
       open={isOpen}
       onOpenChange={(open) => {
         setIsOpen(open);
+
         if (!open) {
           form.reset();
         }
@@ -258,7 +260,7 @@ export default function UpsertTransactionDialog({
                   name="date"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Categoria</FormLabel>
+                      <FormLabel>Data</FormLabel>
                       <DatePicker
                         value={field.value}
                         onChange={field.onChange}
@@ -274,7 +276,7 @@ export default function UpsertTransactionDialog({
                       Cancelar
                     </Button>
                   </DialogClose>
-                  <Button type="submit">
+                  <Button type="submit" disabled={form.formState.isSubmitting}>
                     {isUpdate ? "Atualizar" : "Adicionar"}
                   </Button>
                 </DialogFooter>

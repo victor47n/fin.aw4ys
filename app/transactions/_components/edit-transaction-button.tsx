@@ -29,6 +29,7 @@ export default function EditTransactionButton({
         defaultValues={{
           ...transaction,
           amount: Number(transaction.amount),
+          date: new Date(transaction.date),
         }}
         transactionId={transaction.id}
       />
